@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="text-center">
+    <h2>Vítej v aplikaci Auta</h2>
+    <p class="lead">Tady si můžeš spravovat svou databázi aut.</p>
+    <a href="{{ url_for('index') }}" class="btn btn-primary mt-3">📋 Zobrazit auta</a>
+    <a href="{{ url_for('create') }}" class="btn btn-success mt-3">➕ Přidat nové auto</a>
+</div>
+{% endblock %}

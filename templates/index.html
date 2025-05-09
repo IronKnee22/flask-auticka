@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<a href="/create" class="btn btn-primary mb-3">➕ Přidat nové auto</a>
+{% if posledni_auto %}
+    <div class="alert alert-success">
+        Poslední přidané auto: <strong>{{ posledni_auto }}</strong>
+    </div>
+{% endif %}
+
+{% if auta %}
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Název</th>
+            <th>Popis</th>
+            <th>Datum uvedení</th>
+            <th>Cena</th>
+            <th>Barva</th>
+            <th>Akce</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for auto in auta %}
+        <tr>
+            <td>{{ auto.nazev }}</td>
+            <td>{{ auto.popis }}</td>
+            <td>{{ auto.datum_uvedeni }}</td>
+            <td>{{ auto.cena or '-' }}</td>
+            <td>
+                <div style="width: 20px; height: 20px;background-color: {{ auto.barva or '#ccc' }}"></div>
+            </td>
+            <td>
+                <a href="/edit/{{ auto.id }}" class="btn btn-sm btn-warning">✏️</a>
+                <a href="/delete/{{ auto.id }}" class="btn btn-sm btn-danger">🗑️</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>Nemáš zatím žádná auta.</p>
+{% endif %}
+{% endblock %}

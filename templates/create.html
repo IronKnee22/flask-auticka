@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Přidat nové auto</h2>
+<form method="post">
+    <div class="mb-3">
+        <label class="form-label">Název *</label>
+        <input type="text" name="nazev" maxlength="30" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Popis *</label>
+        <textarea name="popis" maxlength="500" class="form-control" required></textarea>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Datum uvedení *</label>
+        <input type="date" name="datum" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Cena (volitelné)</label>
+        <input type="text" name="cena" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Barva (např. #ff0000)</label>
+        <input type="text" name="barva" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-success">Uložit</button>
+    <a href="/" class="btn btn-secondary">Zpět</a>
+</form>
+{% endblock %}
