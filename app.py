@@ -5,9 +5,7 @@ from flask import Flask, flash, g, redirect, render_template, request, session, 
 
 app = Flask(__name__)
 app.config["DATABASE"] = "auta.db"
-app.config["SECRET_KEY"] = "tajny-klic"  # bude potřeba pro sessions
-
-# ====== Funkce pro práci s databází ======
+app.config["SECRET_KEY"] = "tajny-klic"
 
 
 def get_db():
@@ -37,9 +35,6 @@ def init_db():
         )
     """)
     db.commit()
-
-
-# ====== ROUTES ======
 
 
 @app.route("/auta")
@@ -159,8 +154,6 @@ def delete(id):
 def page_not_found(e):
     return render_template("404.html"), 404
 
-
-# ====== Spuštění ======
 
 if __name__ == "__main__":
     if not os.path.exists("auta.db"):
